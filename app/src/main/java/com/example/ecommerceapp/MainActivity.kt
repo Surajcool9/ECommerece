@@ -1,5 +1,6 @@
 package com.example.ecommerceapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -65,6 +66,13 @@ class MainActivity : AppCompatActivity(), ProductListAdapter.ClickOnCard {
         price: Double,
         title: String
     ) {
-        TODO("Not yet implemented")
+        val intent = Intent(this, ProductDetail::class.java).apply {
+            putExtra("ID", id)
+            putExtra("PRICE",price)
+            putExtra("IMAGE", image.toString())
+            putExtra("TITLE", title.toString())
+            putExtra("DESCRIPTION", description.toString())
+        }
+        startActivity(intent)
     }
 }
